@@ -1,0 +1,12 @@
+package test.com.cathaybk.Springboot.controller;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class HelloController {
+	@RequestMapping("/Hello")
+	public String greeting(@RequestParam(value="title", required=false, defaultValue="xiao") String title, Model model) {
+		model.addAttribute("name", title);
+		return "index";
+	}
+}

@@ -1,0 +1,37 @@
+package test.com.cathaybk.Springboot.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import test.com.cathaybk.Springboot.entity.Currency;
+
+@Controller
+public class HelloController {
+	@RequestMapping("/Hello")
+	public String Hello(@RequestParam(value="title", required=false, defaultValue="Liu") String title, Model model) {
+		model.addAttribute("name", title);
+		model.addAttribute("message", "This is a message");
+
+		return "Hello";
+	}
+	
+	@Autowired
+	Currency currency;
+	
+	@RequestMapping("/Insert")
+	public String Insert(@RequestParam(value="title", required=false, defaultValue="Liu") String title, Model model) {
+		model.addAttribute("name", title);
+		model.addAttribute("message", "This is a message");
+
+		currency.setCode("USD");
+		currency.setSymbol("$");
+		currency.setRate("16,550.5430");
+		currency.setDescription("United States Dollar");
+		currency.setRate_float(16550.543);
+		
+		return "Hello";
+	}
+}

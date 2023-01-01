@@ -1,0 +1,12 @@
+package test.com.cathaybk.Springboot.service;
+
+import test.com.cathaybk.Springboot.dao.TodoDao;
+
+public class TodoService {
+	@Autowired
+	TodoDao todoDao;
+	
+	public Iterable<Todo> getTodo() {
+		return todoDao.findAll();
+	}
+}

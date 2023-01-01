@@ -1,0 +1,50 @@
+package test.com.cathaybk.Springboot.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import test.com.cathaybk.Springboot.entity.Currency;
+
+@Repository
+public class CurrencyDao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public void InsertCurrency(Currency currency) {
+		System.out.println("EXCUTE INSERT Currency");
+//		jdbcTemplate.update("INSERT INTO Currency(CODE, SYMBOL, RATE, DESCRIPTION, RATE_FLOAT) "
+//			+ "VALUES (?,?,?,?,?)",currency.getCode(), currency.getSymbol(),
+//			currency.getRate(),currency.getDescription(),currency.getRate_float());
+		String sql = "INSERT INTO Currency " + 
+					 "(CODE, SYMBOL, RATE, DESCRIPTION, RATE_FLOAT) " + 
+					 "VALUES (" + 
+					 "'" + currency.getCode() +  "', " + 
+					 "'" + currency.getSymbol() + "', " + 
+					 "'" + currency.getRate() + "', " + 
+					 "'" + currency.getDescription() + "', " + 
+					 currency.getRate_float() + "" + 
+					 ")";
+		
+//		SqlParameterSource paramSource = new BeanPropertySqlParameterSource(currency);
+//		KeyHolder keyHolder = new GeneratedKeyHolder();
+		
+//		jdbcTemplate.update(sql, null, keyHolder);
+		jdbcTemplate.update(sql);
+//		return keyHolder.getKey().intValue();
+	}
+	
+	public void UpdateCurrency(Currency currency) {
+		String sql = "INSERT INTO Currency " + 
+				 "(CODE, SYMBOL, RATE, DESCRIPTION, RATE_FLOAT) " + 
+				 "VALUES (" + 
+				 "'" + currency.getCode() +  "', " + 
+				 "'" + currency.getSymbol() + "', " + 
+				 "'" + currency.getRate() + "', " + 
+				 "'" + currency.getDescription() + "', " + 
+				 currency.getRate_float() + "" + 
+				 ")";
+		
+		jdbcTemplate.update(sql);
+	}
+}

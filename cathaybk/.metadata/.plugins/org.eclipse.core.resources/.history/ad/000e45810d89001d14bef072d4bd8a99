@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Hello</title>
+	</head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script>
+		$('#button_insert').click(insertClickEvent);
+		
+		function insertClickEvent() {
+			$('#form_main').attr('action', 'Insert').submit();
+		}
+	</script>
+	<body>
+	    <p>Hello, JSP!</p>
+		<p>My name is ${name}.</p>
+		<p>${message}.</p>
+		
+		<form id="form_main">
+			<p><label>幣別：</label><input type="text" id="code" name="code"></p>
+			<p><label>符號：</label><input type="text" id="symbol" name="symbol"></p>
+			<p><label>匯率：</label><input type="text" id="rate" name="rate"></p>
+			<p><label>備註：</label><input type="text" id="description" name="description"></p>
+			<p>
+				<button type="button" id="button_insert">新增</button>
+				<button onclick="location='http://localhost:9100/Update'">修改</button>
+				<button onclick="location='http://localhost:9100/Delete'">刪除</button>
+			</p>
+			<table id="table">
+			</table>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+package test.com.cathaybk.Springboot.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import test.com.cathaybk.Springboot.entity.Currency;
+
+@Repository
+public class CurrencyDao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public void addCurrency(Currency currency) {
+		System.out.println("EXCUTE INSERT Currency");
+		jdbcTemplate.update("INSERT INTO Currency(CODE, SYMBOL, RATE, DESCRIPTION, RATE_FLOAT) "
+			+ "VALUES (?,?,?,?,?)",currency.getCode(), currency.getSymbol(),
+			currency.getRate(),currency.getDescription(),currency.getRate_float());
+	}
+}

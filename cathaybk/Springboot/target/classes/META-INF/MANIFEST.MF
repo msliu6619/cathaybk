@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: Springboot
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: test.com.cathaybk
+Build-Jdk: 1.8.0_261
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+
